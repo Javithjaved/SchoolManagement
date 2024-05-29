@@ -13,23 +13,24 @@ import com.School.Managements.details.Entity.School;
 import com.School.Managements.details.Service.SchoolService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/school")
 public class SchoolController {
-	
-	@Autowired 
-	
+
+	@Autowired
+
 	SchoolService schoolservice;
-    @PostMapping("/school")
+
+	@PostMapping
 	public School createSchool(@RequestBody School school) {
 		return this.schoolservice.CreateNewSchool(school);
-		
+
 	}
-    
-    @GetMapping("/school")
-    
-    public List<School> RetriveSchool(){
+
+	@GetMapping
+
+	public List<School> RetriveSchool() {
 		return this.schoolservice.RetriveAllSchool();
-    	
-    }
+
+	}
 
 }

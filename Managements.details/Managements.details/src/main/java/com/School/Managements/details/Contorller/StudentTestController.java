@@ -15,23 +15,18 @@ import com.School.Managements.details.Service.StudentTestService;
 @RestController
 @RequestMapping("/api")
 public class StudentTestController {
-	
+
 	@Autowired
-	
-	StudentTestService studenttestservice;
-	
-	
-	@PostMapping("/test")
-	
-	
-	public StudentTest CreateTest(@RequestBody StudentTest studenttest) {
-		return this.studenttestservice.CreateTestQuestion(studenttest);
+	StudentTestService studentTestService;
+
+	@PostMapping("/create-student-test")
+	public StudentTest CreateTest(@RequestBody final StudentTest studentTest) {
+		return this.studentTestService.createTestQuestion(studentTest);
 	}
-	
+
 	@GetMapping("/test")
-	
-	public List<StudentTest> RetriveTest(){
-		return this.studenttestservice.RetriveAllTest();
+	public List<StudentTest> RetriveTest() {
+		return this.studentTestService.RetriveAllTest();
 	}
-	
+
 }

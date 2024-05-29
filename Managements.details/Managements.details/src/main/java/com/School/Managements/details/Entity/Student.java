@@ -17,7 +17,7 @@ public class Student {
     @Column(name = "StudentName")
     private String StudentName;
     @ManyToOne
-    @JoinColumn(name = "SchoolId", nullable = false)
+    @JoinColumn(name = "SchoolId")
     private School school;
     public String getStudentName() {
         return StudentName;

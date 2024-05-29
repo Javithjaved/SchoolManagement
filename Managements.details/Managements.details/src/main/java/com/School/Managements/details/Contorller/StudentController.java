@@ -13,18 +13,18 @@ import com.School.Managements.details.Entity.Student;
 import com.School.Managements.details.Service.StudentService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/student")
 public class StudentController {
 	@Autowired
 	
 	StudentService studentserivce;
 	
 	
-	@PostMapping("/student")
+	@PostMapping
 	public Student CraeteStudent(@RequestBody Student student) {
 		return this.studentserivce.CreateStudent(student);
 	}
-	@GetMapping("/student")
+	@GetMapping
 	
 	public List<Student> RetriveStudent(){
 		return this.studentserivce.RetriveAllStudent();

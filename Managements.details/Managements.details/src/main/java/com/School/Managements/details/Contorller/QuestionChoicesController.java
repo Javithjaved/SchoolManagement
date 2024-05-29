@@ -13,20 +13,21 @@ import com.School.Managements.details.Entity.QuestionChoices;
 import com.School.Managements.details.Service.QuestionChoicesService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/choice")
 public class QuestionChoicesController {
 	@Autowired
-	
+
 	QuestionChoicesService questionchoicesservice;
-	@PostMapping("/choice")
+
+	@PostMapping
 	public QuestionChoices createChoice(@RequestBody QuestionChoices questionchoices) {
 		return this.questionchoicesservice.CreateNewChoice(questionchoices);
-		
+
 	}
-	
-	@GetMapping("/choice")
-	public List<QuestionChoices> RetriveChoice(){
+
+	@GetMapping
+	public List<QuestionChoices> RetriveChoice() {
 		return this.questionchoicesservice.RetriveAllChoice();
-		
+
 	}
 }

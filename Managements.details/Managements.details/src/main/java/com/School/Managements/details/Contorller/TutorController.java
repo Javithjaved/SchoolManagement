@@ -16,22 +16,22 @@ import com.School.Managements.details.Entity.Tutor;
 import com.School.Managements.details.Service.TutorService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/tutor")
 public class TutorController {
-	
+
 	@Autowired
-	
+
 	TutorService tutorservice;
-	
-	@PostMapping("/tutor")
+
+	@PostMapping
 	public Tutor CreateNewTutor(@RequestBody Tutor tutor) {
 		return this.tutorservice.CreateTutor(tutor);
-	
+
 	}
-	
-	@GetMapping("/tutor")
-	public List<Tutor> RetriveTutor(){
+
+	@GetMapping
+	public List<Tutor> RetriveTutor() {
 		return this.tutorservice.RetraiveAllTutor();
-		
+
 	}
 }

@@ -11,11 +11,11 @@ import com.School.Managements.details.Repository.QuestionRepository;
 
 @Service
 public class QuestionService {
-	@Autowired 
+	@Autowired
 	QuestionRepository questionrespository;
-	
+
 	public Question CreateAllQuestion(final Question question) {
-		return this.questionrespository.save(question) ;
+		return this.questionrespository.save(question);
 	}
 
 	public List<Question> RetriveAllQuestion() {
@@ -23,6 +23,6 @@ public class QuestionService {
 	}
 
 	public Optional<Question> SingleId(Long id) {
-			return this.questionrespository.findById(id);
+		return this.questionrespository.findById(id);
 	}
 }

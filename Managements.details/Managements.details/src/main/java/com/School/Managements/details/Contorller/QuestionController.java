@@ -15,23 +15,25 @@ import com.School.Managements.details.Entity.Question;
 import com.School.Managements.details.Service.QuestionService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/question")
 public class QuestionController {
-	
+
 	@Autowired
 	QuestionService questionservice;
-	
-	@PostMapping("/question")
+
+	@PostMapping
 	public Question CreateQuestion(@RequestBody Question question) {
 		return this.questionservice.CreateAllQuestion(question);
-		
+
 	}
-	@GetMapping("/question/{id}")
+
+	@GetMapping("/{id}")
 	public Optional<Question> SingleIdfind(@PathVariable Long id) {
 		return this.questionservice.SingleId(id);
 	}
-	@GetMapping("/question")
-	public List<Question>RetriveQuestion(){
+
+	@GetMapping
+	public List<Question> RetriveQuestion() {
 		return this.questionservice.RetriveAllQuestion();
 	}
 }

@@ -1,63 +1,39 @@
 package com.School.Managements.details.Entity;
 
-import jakarta.persistence.*;
-import java.util.List;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 @Entity
+@Table(name = "result")
 public class Result {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	 @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
+	    private Long studentId;
+	    private int totalPoints;
+	    public Long getId() {
+	        return id;
+	    }
 
-    @ManyToOne
-    private Student student;
+	    public void setId(Long id) {
+	        this.id = id;
+	    }
 
-    @OneToMany
-    private List<StudentTest> studentTests;
+	    public Long getStudentId() {
+	        return studentId;
+	    }
 
-    private Long totalPoints;
+	    public void setStudentId(Long studentId) {
+	        this.studentId = studentId;
+	    }
 
-    public Long getId() {
-		return id;
-	}
+	    public int getTotalPoints() {
+	        return totalPoints;
+	    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	public Long getTotalPoints() {
-		return totalPoints;
-	}
-
-	public void setTotalPoints(Long totalPoints) {
-		this.totalPoints = totalPoints;
-	}
-
-	public List<StudentTest> getStudentTests() {
-		return studentTests;
-	}
-
-	public void setStudentTests(List<StudentTest> studentTests) {
-        this.studentTests = studentTests;
-        calculateTotalPoints();
-    }
-	private void calculateTotalPoints() {
-	    this.totalPoints = studentTests.stream()
-	            .mapToLong(studentTest -> {
-	                if (studentTest.getQuestionchoices() != null) {
-	                    return studentTest.getQuestionchoices().getPoint();
-	                }
-	                return 0L;
-	            })
-	            .sum();
-	}
-
+	    public void setTotalPoints(int totalPoints) {
+	        this.totalPoints = totalPoints;
+	    }
 }
