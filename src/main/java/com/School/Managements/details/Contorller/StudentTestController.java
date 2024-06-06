@@ -9,29 +9,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.School.Managements.details.DTO.ResponsePaginationDTO;
+import com.School.Managements.details.DTO.ResponseTestDTO;
 import com.School.Managements.details.Entity.StudentTest;
 import com.School.Managements.details.Service.StudentTestService;
 
 @RestController
 @RequestMapping("/api")
 public class StudentTestController {
-	
+
 	@Autowired
-	
-	StudentTestService studenttestservice;
-	
-	
-	@PostMapping("/test")
-	
-	
-	public StudentTest CreateTest(@RequestBody StudentTest studenttest) {
-		return this.studenttestservice.CreateTestQuestion(studenttest);
+	StudentTestService studentTestService;
+
+	@PostMapping("/create-student-test")
+	public StudentTest CreateTest(@RequestBody final StudentTest studentTest) {
+		return this.studentTestService.createTestQuestion(studentTest);
 	}
 	
 	@GetMapping("/test")
-	
-	public List<StudentTest> RetriveTest(){
-		return this.studenttestservice.RetriveAllTest();
+	public List<ResponseTestDTO> RetriveTest(ResponsePaginationDTO responsePaginationDTO) {
+		return this.studentTestService.RetriveAllTest(responsePaginationDTO.getPageno(),responsePaginationDTO.getPagesize());
 	}
-	
+
 }

@@ -12,19 +12,20 @@ import jakarta.persistence.ManyToOne;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "sequenceGenerator")
+    @Column(name="studentId")
     private Long Id;
 
     @Column(name = "StudentName")
-    private String StudentName;
+    private String studentName;
     @ManyToOne
-    @JoinColumn(name = "SchoolId", nullable = false)
     private School school;
+
     public String getStudentName() {
-        return StudentName;
+        return studentName;
     }
 
     public void setStudentName(String studentName) {
-        this.StudentName = studentName;
+        this.studentName = studentName;
     }
     
     public School getSchool() {
@@ -42,7 +43,6 @@ public class Student {
     public void setId(Long id) {
         this.Id = id;
     }
-
 
 }
  

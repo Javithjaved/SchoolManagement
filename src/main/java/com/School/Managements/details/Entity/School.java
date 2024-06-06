@@ -5,42 +5,43 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="school")
 public class School {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "sequenceGenerator")
-    @Column(name = "SchoolId")
-    private Long Id;
-
-    @Column(name = "SchoolName")
-    private String SchoolName;
-
-    @Column(name = "Location")
-    private String Location;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "sequenceGenerator")
+	@Column(name = "SchoolId")
+	private Long id;
+	@Column(name="schoolname")
+    private String schoolName;
+	@Column(name="location")
+    private String location;
+    
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getSchoolName() {
-        return SchoolName;
+        return schoolName;
     }
 
     public void setSchoolName(String schoolName) {
-        this.SchoolName = schoolName;
+        this.schoolName = schoolName;
     }
 
-    public String getLocation() {
-        return Location;
-    }
+	public String getLocation() {
+		return location;
+	}
 
-    public void setLocation(String location) {
-        this.Location = location;
-    }
+	public void setLocation(String location) {
+		this.location = location;
+	}
+    
 }
-
