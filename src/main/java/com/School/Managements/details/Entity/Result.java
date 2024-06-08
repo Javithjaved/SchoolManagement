@@ -1,4 +1,4 @@
-package com.School.Managements.details.Entity;
+ package com.School.Managements.details.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

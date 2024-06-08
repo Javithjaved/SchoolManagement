@@ -41,4 +41,8 @@ public class StudentTestService {
 		}
 		return responseDTOs;
 	}
+
+	public List<StudentTest> RetriveAllStudentTest() {
+		return this.studentTestRepository.findAll();
+	}
 }

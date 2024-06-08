@@ -22,9 +22,10 @@ public class StudentTest {
 
     @ManyToOne
     private Question question;
-    
+  
     @ManyToOne
     private QuestionChoices questionChoices;
+   
     public Long getId() {
         return id;
     }

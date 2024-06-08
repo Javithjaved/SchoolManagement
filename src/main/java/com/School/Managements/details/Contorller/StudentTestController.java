@@ -26,6 +26,10 @@ public class StudentTestController {
 		return this.studentTestService.createTestQuestion(studentTest);
 	}
 	
+	@GetMapping
+	public List<StudentTest> StudentTest(){
+		return this.studentTestService.RetriveAllStudentTest();
+	}
 	@GetMapping("/test")
 	public List<ResponseTestDTO> RetriveTest(ResponsePaginationDTO responsePaginationDTO) {
 		return this.studentTestService.RetriveAllTest(responsePaginationDTO.getPageno(),responsePaginationDTO.getPagesize());

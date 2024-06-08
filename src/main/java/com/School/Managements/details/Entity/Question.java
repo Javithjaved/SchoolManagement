@@ -21,8 +21,8 @@ public class Question {
 	@ManyToOne
 	private Tutor tutor;
 
-	@ManyToOne
-	private QuestionChoices questionchoices;
+//	@ManyToOne
+//	private QuestionChoices questionchoices;
 
 	public Tutor getTutor() {
 		return tutor;
@@ -48,15 +48,15 @@ public class Question {
 		this.questionText = questionText;
 	}
 
-	public QuestionChoices getQuestionchoices() {
-		return questionchoices;
-	}
-
-	public void setQuestionchoices(QuestionChoices questionchoices) {
-		this.questionchoices = questionchoices;
-	}
-
-	public long getPoints() {
-		return this.questionchoices.calculatePoints();
-	}
+//	public QuestionChoices getQuestionchoices() {
+//		return questionchoices;
+//	}
+//
+//	public void setQuestionchoices(QuestionChoices questionchoices) {
+//		this.questionchoices = questionchoices;
+//	}
+//
+//	public long getPoints() {
+//		return this.questionchoices.calculatePoints();
+//	}
 }

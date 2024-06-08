@@ -2,6 +2,7 @@ package com.School.Managements.details.Contorller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import com.School.Managements.details.Service.SchoolService;
 
 @RestController
 @RequestMapping("/api/school")
+@CrossOrigin(origins = "http://localhost:3001/")
 public class SchoolController {
 	@Autowired
 	SchoolService schoolservice;

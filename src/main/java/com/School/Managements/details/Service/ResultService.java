@@ -11,12 +11,13 @@ import com.School.Managements.details.Entity.Question;
 import com.School.Managements.details.Entity.QuestionChoices;
 import com.School.Managements.details.Entity.Result;
 import com.School.Managements.details.Entity.StudentTest;
+import com.School.Managements.details.Entity.Tutor;
 import com.School.Managements.details.Repository.ResultRepository;
 import com.School.Managements.details.Repository.StudentTestRepository;
 
 @Service
 public class ResultService {
-    @Autowired
+	@Autowired
     StudentTestRepository studentTestRepository;
 
     @Autowired
@@ -28,7 +29,7 @@ public class ResultService {
         for (StudentTest studentTest : studentTests) {
             Question question = studentTest.getQuestion();
             if (question != null) {
-                QuestionChoices questionChoices = question.getQuestionchoices();
+                QuestionChoices questionChoices = studentTest.getQuestionChoices();
                 if (questionChoices != null && questionChoices.getIsCorrect()) {
                     totalPoints += questionChoices.calculatePoints();
                 }

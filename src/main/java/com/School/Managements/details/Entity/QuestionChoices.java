@@ -18,7 +18,6 @@ public class QuestionChoices {
 	private String choices;
 	@Column(name="iscorrect")
 	private Boolean isCorrect;
-
 	public Long getId() {
 		return id;
 	}
@@ -45,5 +44,8 @@ public class QuestionChoices {
 
 	public Long calculatePoints() {
 		return (isCorrect != null && isCorrect) ? 10L : 0L;
+	}
+	public Long getPoints() {
+		return this.calculatePoints();
 	}
 }
