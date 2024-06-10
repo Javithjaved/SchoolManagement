@@ -19,27 +19,32 @@ import com.School.Managements.details.Service.SchoolService;
 @RequestMapping("/api/school")
 @CrossOrigin(origins = "http://localhost:3001/")
 public class SchoolController {
-	@Autowired
-	SchoolService schoolservice;
+    @Autowired
+    SchoolService schoolService;
 
-	@PostMapping
-	public School createSchool(@RequestBody School school) {
-		return this.schoolservice.CreateNewSchool(school);
-	}
+    @PostMapping
+    public School createSchool(@RequestBody School school) {
+        return this.schoolService.createNewSchool(school);
+    }
 
-	@GetMapping
-	public List<School> RetriveSchool() {
-		return this.schoolservice.RetriveAllSchool();
+    @GetMapping
+    public List<School> retrieveSchool() {
+        return this.schoolService.retrieveAllSchool();
+    }
 
-	}
+    @GetMapping("/pagination")
+    public List<ResponseSchoolDTO> getNextPage(@RequestBody ResponsePaginationDTO paginationDTO) {
+        return this.schoolService.getNextPage(paginationDTO.getPageno(), paginationDTO.getPagesize());
+    }
 
-	@GetMapping("/pagination")
-	public List<ResponseSchoolDTO> getNextPage(ResponsePaginationDTO paginationDTO) {
-		return this.schoolservice.getNextPage(paginationDTO.getPageno(), paginationDTO.getPagesize());
-	}
-
-	@GetMapping("/search")
-	public List<ResponseSchoolDTO> Search(@RequestParam String schoolName,Long schoolId) {
-		return this.schoolservice.SearchAllSchool(schoolName,schoolId);
-	}
+    @GetMapping("/search")
+    public List<ResponseSchoolDTO> search(
+        @RequestParam(required = false) String schoolName,
+        @RequestParam(required = false) Long schoolId,
+        @RequestParam int pageno,
+        @RequestParam int pagesize,
+        @RequestParam String sortField,
+        @RequestParam String sortDirection) {
+        return schoolService.searchAllSchool(schoolName, schoolId, pageno, pagesize, sortField, sortDirection);
+    }
 }

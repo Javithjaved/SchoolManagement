@@ -18,7 +18,6 @@ public class School {
     private String schoolName;
 	@Column(name="location")
     private String location;
-    
 
     public Long getId() {
         return id;
